@@ -1,22 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Header } from "./components";
 import { Home ,  Cart} from "./pages";
+import axios from "axios";
 // import SortPopup from "./components/SortPopup";
 
 
 
-
 const App = () => {
-  const clickKnopka = () => {
-        alert('Syimyk Mitalipov')
-  }
+  const [pizzas , setPizzas] = useState([])
+  useEffect(() => {
+    axios.get('http://localhost:3000/db.json').then(({ data }) => {
+      setPizzas(data.pizzas)
+    })
+
+  },[])
     return (
         <div className="wrapper">
       <Header />
       <div className="content">
         <Routes>
-            <Route path="/" element={<Home />} exact />
+            <Route path="/" element={ <Home items={pizzas} />} exact />
             <Route path="/cart" element={<Cart />} exact />
         </Routes>
         {/* <Cart /> */}
