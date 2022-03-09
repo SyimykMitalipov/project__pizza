@@ -6,7 +6,7 @@ function SotrPopup({ items }) {
     setVisible(!visible)
   }
   const [activeIndex , setAcitveIndex] = useState(0)
-  const activeLabel = items[activeIndex]
+  const activeLabel = items[activeIndex].name;
 
   const sortRef  =  useRef()
   
@@ -48,7 +48,7 @@ const handleIndex = (index) => {
    {visible && <div className="sort__popup">
       <ul>
         {items &&
-          items.map((name, index) => <li className={ activeIndex === index ? 'active' : ''}  onClick={() => handleIndex(index)} key={`${name}_${index}`}> { name }</li>)
+          items.map((obj, index) => <li className={ activeIndex === index ? 'active' : ''}  onClick={() => handleIndex(index)} key={`${obj.type}_${index}`}> { obj.name }</li>)
         }
       </ul>
     </div>}

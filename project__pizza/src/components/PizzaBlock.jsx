@@ -11,7 +11,7 @@ const Pizzablock = ({ name ,  imageUrl , price, types , sizes}) => {
 
     const sizeIttem = [26, 30 , 40 ]
 
-    console.log(name , sizes);
+ 
     const handleActive = (index) => {
         SetActiveType(index)
     }
