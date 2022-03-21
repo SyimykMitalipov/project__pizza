@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef} from 'react'
 
-function SotrPopup({ items }) {
+ const SortPopup = React.memo(function SotrPopup({ items }) {
   const [visible , setVisible] = useState(false)
   const toggleVisible = () => {
     setVisible(!visible)
@@ -54,6 +54,6 @@ const handleIndex = (index) => {
     </div>}
   </div>
   )
-}
+})
 
-export default SotrPopup;
+export default SortPopup;

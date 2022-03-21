@@ -10,7 +10,7 @@ import './scss/app.scss'
 store.subscribe(() => {
   console.log('CHanged' , store.getState())
 })
-ReactDOM.render(
+ReactDOM.render(  
     <BrowserRouter>
       <Provider store={store}> 
         <App />
